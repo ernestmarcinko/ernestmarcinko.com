@@ -106,9 +106,6 @@ header {
     flex-wrap: wrap;
     gap: 2rem;
     width: 100%;
-}
-
-.projects {
     justify-content: center;
 }
 
@@ -155,4 +152,7 @@ footer .row {
     .main {
         background-position: center 1rem;
     }  
+    .footer-container {
+        justify-content: left;
+    }
 }
