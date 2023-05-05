@@ -26,6 +26,8 @@ jobs:
           username: ${{ secrets.user }}
           # The private key.
           key: ${{ secrets.key }}
+          uploads: |
+            ./ => ${{ secrets.path }}
           ignore: |
             *.git
             .github
