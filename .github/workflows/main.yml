@@ -1,0 +1,35 @@
+name: upload to prod
+on:
+  push:
+    branches: [ '**' ]
+  
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      
+    steps:
+      - uses: actions/checkout@v3
+      - name: SFTP Upload
+        # You may pin to the exact commit or the version.
+        # uses: Dylan700/sftp-upload-action@f90db607d9fe1acdc0eefccee84d37c119b268fe
+        uses: Dylan700/sftp-upload-action@v1.1.4
+        with:
+          # The SFTP server (e.g. sftp.server.com).
+          server: ${{ secrets.address }}
+          # The SFTP username.
+          username: ${{ secrets.user }}
+          # The private key.
+          key: ${{ secrets.key }}
+          uploads: |
+            ./ => ${{ secrets.path }}
+          ignore: |
+            *.git
+            .github
+            .github/
+            .gitignore
+            .gitattribbutes
+            README.md  
