@@ -1,4 +1,4 @@
-name: upload
+name: upload to prod
 on:
   push:
     branches: [ '**' ]
