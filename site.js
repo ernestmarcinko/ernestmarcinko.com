@@ -2,7 +2,14 @@
  * I like to wait for the DOMContentLoaded to do my DOM related stuff, but I'm almost
  * certain this would work without that too, as it's enqueued as last in the footer.
  */
-window.addEventListener("DOMContentLoaded", () => {
+if (document.readyState === "complete" || document.readyState === "loaded"  || document.readyState === "interactive") {
+    // document is already ready to go
+    app();
+} else {
+    $(document).on('DOMContentLoaded', app);
+}
+
+function app() {
     let lastKnownScrollPosition = 0;
     let ticking = false;
     
@@ -45,4 +52,4 @@ window.addEventListener("DOMContentLoaded", () => {
             ticking = true;
         }
     }, {passive: true});
-});
+}
