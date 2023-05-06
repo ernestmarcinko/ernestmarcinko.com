@@ -14,7 +14,7 @@ function app() {
     let ticking = false;
     
     function highlightProject(scrollPos) {
-        if ( scrollPos > 0 ) {
+        if ( typeof screen.orientation !== 'undefined' && window.innerWidth <= 480 && scrollPos > 0 ) {
             document.querySelectorAll('.project').forEach((el)=>{
                 let top = el.getBoundingClientRect().top;
                 if (  top < 200 && top > -200 ) {
@@ -42,9 +42,7 @@ function app() {
     
         if ( !ticking ) {
             window.requestAnimationFrame(() => {
-                if ( typeof screen.orientation !== 'undefined' && window.innerWidth <= 480 ) {
-                    highlightProject(lastKnownScrollPosition);
-                }
+                highlightProject(lastKnownScrollPosition);
                 parallaxBg(lastKnownScrollPosition);
                 ticking = false;
             });
@@ -52,4 +50,7 @@ function app() {
             ticking = true;
         }
     }, {passive: true});
+
+    highlightProject(window.scrollY);
+    parallaxBg(window.scrollY);
 }
