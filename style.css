@@ -43,7 +43,13 @@ p, ul li {
 
 a {
     color: var(--color-anchor);
+    transition: color 0.15s;
     text-decoration: none;
+    text-shadow: none;
+}
+
+a:hover {
+    color: var(--color-pink);
 }
 
 a.title {
@@ -58,26 +64,16 @@ a.title {
 .main {
     padding: 24px;
     margin-bottom: 5rem;
+    background-image: url(img/ernest-marcinko-pixelated-opaque.png);
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: 40px;
+    background-size: auto;
 }
 
 .main > * {
     position: relative;
     z-index: 2;
-}
-
-.main:before {
-    content: ' ';
-    display: block;
-    position: absolute;
-    left: calc(50% - 240px);
-    top: 40px;
-    width: 480px;
-    height: 480px;
-    opacity: 0.12;
-    background-image: url(img/ernest-marcinko-pixelated.png);
-    background-repeat: no-repeat;
-    background-position: 50% 0;
-    background-size: cover;
 }
   
 
@@ -120,7 +116,8 @@ header {
     transition: all 0.3s;
 }
 
-.projects .project:hover {
+.projects .project:hover,
+.projects .project.active {
     box-shadow: 0 0 20px 4px var(--color-pink);
     background: var(--color-project-bg-hover);
 }
@@ -148,10 +145,15 @@ footer .row {
     max-width: 480px;
 }
 
+footer .row li a {
+    line-height: 2rem;
+}
+
 @media only screen and (max-width: 480px) {
     .main {
-        background-position: center 1rem;
-    }  
+        background-position-x: center;
+        background-position-y: 40px;
+    }
     .footer-container {
         justify-content: left;
     }
