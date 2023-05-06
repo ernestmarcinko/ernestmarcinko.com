@@ -58,26 +58,22 @@ a.title {
 
 .w960 {
     max-width: 960px;
-    margin: 0 auto;
 }
 
-.main {
+main {
     padding: 24px;
-    margin-bottom: 5rem;
     background-image: url(img/ernest-marcinko-pixelated-opaque.png);
     background-repeat: no-repeat;
     background-position-x: center;
     background-position-y: 40px;
     background-size: auto;
-}
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto 5rem;
+} 
 
-.main > * {
-    position: relative;
-    z-index: 2;
-}
-  
-
-header {
+section.intro {
     text-align: center;
     margin: 10rem auto;
 }
@@ -141,6 +137,10 @@ footer {
     padding: 24px;
 }
 
+.footer-container {
+    margin: 0 auto;
+}
+
 footer .row {
     max-width: 480px;
 }
@@ -150,7 +150,7 @@ footer .row li a {
 }
 
 @media only screen and (max-width: 480px) {
-    .main {
+    main {
         background-position-x: center;
         background-position-y: 40px;
     }

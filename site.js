@@ -14,21 +14,27 @@ function app() {
     let ticking = false;
     
     function highlightProject(scrollPos) {
-        if ( typeof screen.orientation !== 'undefined' && window.innerWidth <= 480 && scrollPos > 0 ) {
-            document.querySelectorAll('.project').forEach((el)=>{
-                let top = el.getBoundingClientRect().top;
-                if (  top < 200 && top > -200 ) {
-                    el.classList.add('active');
-                } else {
-                    el.classList.remove('active');
+        if ( typeof screen.orientation !== 'undefined' && window.innerWidth <= 720 && scrollPos > 0 ) {
+            let items = document.querySelectorAll('.project'),
+                smallestDistance = 99999;
+                closest = -1;
+            items.forEach((el, i)=>{
+                el.classList.remove('active')
+                let distance = Math.abs(el.getBoundingClientRect().top - window.innerHeight / 2);
+                if ( distance < smallestDistance ) {
+                    smallestDistance = distance;
+                    closest = i;
                 }
             });
+            if ( smallestDistance < window.innerHeight / 3 ) {
+                items[closest].classList.add('active');
+            }
         }
     }
 
     function parallaxBg(scrollPos) {
         let positionY = parseInt(40 + scrollPos / 4);
-        document.querySelector('.main').style.backgroundPositionY = positionY + "px";
+        document.querySelector('main').style.backgroundPositionY = positionY + "px";
     }
     
     /**

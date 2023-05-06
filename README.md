@@ -5,6 +5,12 @@
 
  It's great for very simple presentation style pages, you only need a web server like Apache or Nginx or anything else.
 
+ ## Features
+  - Very simple flex layout
+  - SVG social icons
+  - Simple parallax effect on the background image
+  - Block highlighting on mobile devices when scrolling
+
  ## Usage
   - You download the code
   - Change it as you like with your favourite editor (or notepad.exe if you are a savage)
