@@ -1,7 +1,7 @@
 # Source code of ernestmarcinko.com
  Hi!
 
- This is the full source code of my [personal website](https://ernestmarcinko.com). It is super simple, mobile friendly static website and guaranteed to score **100% on google pagespeed insights** - if that's what you are into.
+ This is the full source code of my [personal website](https://ernestmarcinko.com). It is super simple, mobile friendly static website and scores great on google pagespeed insights too - if that's what you are into.
 
  It's great for very simple presentation style pages, you only need a web server like Apache or Nginx or anything else.
 
@@ -10,6 +10,7 @@
   - SVG social icons
   - Simple parallax effect on the background image
   - Block highlighting on mobile devices when scrolling
+  - Fast
 
  ## Usage
   - You download the code
