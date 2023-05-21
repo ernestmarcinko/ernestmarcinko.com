@@ -40,11 +40,12 @@
     }
     </script>
     <!-- End Google Tag Manager -->
+    <script src="typewriter/typewriter.js"></script>
 </head>
 <body>
     <main class="w960" role="main">
         <section class="intro">
-            <h1>Hi, I'm Ernest</h1>
+            <h1 id="hi"></h1>
             <p>I code. For fun.</p>
             <p class="socials">
                 <a target="_blank" href="https://www.youtube.com/@ernestmarcinko/" title="Youtube" aria-label="Youtube">
@@ -79,6 +80,17 @@
                     <li><a href='https://github.com/anag0/cookieclicker'>Github Repository</a></li>
                     <li><a href='https://brain.js.org/'>Brain.js</a> neural network for javascript</li>
                     <li><a href='https://www.thisdot.co/blog/quick-intro-to-genetic-algorithms-with-a-javascript-example'>Awesome Genetic algorithm tutorial</a> for javascript</li>
+                </ul>
+            </div>
+            <div class="project">
+                <a class="title" href="https://ernestmarcinko.com/typewriter/">
+                    <h2>TypeWriter Effect Script</h2>
+                </a>
+                <p>A simple but very usable TypeWriter effect script, written in vanilla javascript (ES6), only about ~2KB in size</p>
+                <ul>
+                    <li><a href='https://ernestmarcinko.com/typewriter/'>Live Example</a></li>
+                    <li><a href='https://github.com/anag0/typewriter'>Github Repository</a></li>
+                    <li><a href='https://www.npmjs.com/package/@anag0/typewriter'>npm Repository</a></li>
                 </ul>
             </div>
             <div class="project">
@@ -130,5 +142,13 @@
         </div>
     </footer>
     <script src="site.js" async></script>
+    <script>
+        const typeWriter = new TypeWriter(document.querySelector('#hi'),{
+            pauseMin: 50,
+            pauseMax: 200,
+            keepBlinking: false
+        });
+        typeWriter.wait(1000).write("Hi, I'm Ernest");
+    </script>
 </body>
 </html>
