@@ -23,7 +23,7 @@
     }
     </script>
     <!-- End Google Tag Manager -->
-    <script src="typewriter.js"></script>
+    <script src="typewriter.js?v=1.0.2"></script>
 </head>
 <body>
     <main class="w960" role="main">
@@ -53,28 +53,39 @@
             </div>
         </div>
     </footer>
-    <script src="site.js" async></script>
+    <script src="../site.js" async></script>
     <script>
-        const tw1 = new TypeWriter(document.querySelector('#tw1'),{
-            pauseMin: 50,
-            pauseMax: 120,
-            keepBlinking: false
-        });
-        tw1.wait(1000).write(" - so this is a typewriter script");
+        const node1 = document.querySelector('#tw1');
+        const node2 = document.querySelector('#tw2');
+        const node3 = document.querySelector('#tw3');
 
-        const tw2 = new TypeWriter(document.querySelector('#tw2'),{
+        const typeWriter1 = new TypeWriter(node1, {
+            autoStart: false,
+            keepBlinking: false,
+            onFinish: (node, params)=>{
+                typeWriter2.start()
+            },
+        });
+        const typeWriter2 = new TypeWriter(node2, {
+            autoStart: false,
+            keepBlinking: false,
             pauseMin: 50,
-            pauseMax: 70,
-            keepBlinking: false
+            pauseMax: 60,
+            onFinish: ()=>{
+                typeWriter3.start()
+            }
         });
-        tw2.wait(4000).write("It can write very fast, and also..");
+        const typeWriter3 = new TypeWriter(node3, {
+            autoStart: false,
+            keepBlinking: true,
+            cursor: "\u25ae",
+            pauseMin: 200,
+            pauseMax: 300
+        });
 
-        const tw3 = new TypeWriter(document.querySelector('#tw3'),{
-            pauseMin: 300,
-            pauseMax: 400,
-            keepBlinking: false
-        });
-        tw3.wait(5500).write("..slowly.");
+        typeWriter1.write(" - so this is a typewriter script").start();
+        typeWriter2.write("It can write very fast, and also..");
+        typeWriter3.write("..slowly.");
     </script>
 </body>
 </html>
