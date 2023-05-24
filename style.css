@@ -73,6 +73,10 @@ main {
     margin: 0 auto 5rem;
 } 
 
+section {
+    width: 100%;
+}
+
 section.intro {
     text-align: center;
     margin: 10rem auto;

@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="Typewriter effect written in javascript. Easy to use, very fast, very small." name="description"/>
+    
     <link rel="stylesheet" href="../style.css">
     <link rel="icon" type="image/png" href="../img/favicon.png" />
-    <title>TypeWriter Effect Script - Ernest Marcinko Official</title>
+    <title>TypeWriter Effect Script by Ernest Marcinko</title>
+    <meta property="og:title" content="TypeWriter Effect Script by Ernest Marcinko" />
+    <meta property="og:description" content="Typewriter effect written in javascript. Easy to use, very fast, very small." />
+    <meta content="Typewriter effect written in javascript. Easy to use, very fast, very small." name="description"/>
 
 	<!-- Google Tag Manager -->
     <script>
@@ -23,15 +26,52 @@
     }
     </script>
     <!-- End Google Tag Manager -->
-    <script src="typewriter.js?v=1.0.2"></script>
 </head>
 <body>
     <main class="w960" role="main">
         <section class="intro">
-            <h1 id="tw1">Okay</h1>
-            <p id="tw2"></p>
-            <p id="tw3"></p>
-            <p>Check out the <a href='https://github.com/anag0/typewriter'>Github repository</a> for more details.</p>
+            <h1 id="tw1">Native javascript TypeWriter</h1>
+            <p>This is a simple, small (~2.3kB) yet powerful TypeWriter effect written in native javascript.</p>
+            <p>It can write, delete, clear, pause, can chain and also has events and many more.</p>
+            <p><a href='https://github.com/anag0/typewriter'>Github repository</a> | <a href="https://youtu.be/SKs-_MSlSsE">YouTube Video</a> | <a href="https://www.npmjs.com/package/@anag0/typewriter">npm</a></p>
+            
+        </section>
+        <section>
+            <h2>Basic Usage</h2>
+            <iframe src="https://codesandbox.io/embed/fervent-thompson-dnqp9m?fontsize=14&hidenavigation=1&theme=dark"
+                style="width:100%; height:300px; border:0; border-radius: 4px; overflow:hidden;"
+                title="typewriter-example-simple-dnqp9m"
+                allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+                sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+            ></iframe>
+
+            <h2>Custom cursor and Speed</h2>
+            <p>The speed of each operation is randomly chosen between the min/max values defined by the "pauseMin" and "pauseMax" attributes.</p>
+            <iframe src="https://codesandbox.io/embed/typewriter-example-speed-cursor-pi7fms?fontsize=14&hidenavigation=1&theme=dark"
+                style="width:100%; height:300px; border:0; border-radius: 4px; overflow:hidden;"
+                title="typewriter-example-simple-dnqp9m"
+                allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+                sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+            ></iframe>
+
+            <h2>TypeWriter Chains</h2>
+            <p>You can easily chain up multiple typewriter nodes via the "onFinish" method (attribute).</p>
+            <iframe src="https://codesandbox.io/embed/typewriter-example-chain-gmp1m4?fontsize=14&hidenavigation=1&theme=dark"
+                style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+                title="typewriter-example-chain"
+                allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+                sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+            ></iframe>
+
+            <h2>Real time configuration change</h2>
+            <p>Make changes to the configuration via the "config" method if needed.</p>
+            <iframe src="https://codesandbox.io/embed/typewriter-example-config-vdxf0c?fontsize=14&hidenavigation=1&theme=dark"
+                style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+                title="typewriter-example-config"
+                allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+                sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+            ></iframe>
+
             <p><a href='../'><< Back Home</a></p>
         </section>
     </main>
@@ -54,38 +94,5 @@
         </div>
     </footer>
     <script src="../site.js" async></script>
-    <script>
-        const node1 = document.querySelector('#tw1');
-        const node2 = document.querySelector('#tw2');
-        const node3 = document.querySelector('#tw3');
-
-        const typeWriter1 = new TypeWriter(node1, {
-            autoStart: false,
-            keepBlinking: false,
-            onFinish: (node, params)=>{
-                typeWriter2.start()
-            },
-        });
-        const typeWriter2 = new TypeWriter(node2, {
-            autoStart: false,
-            keepBlinking: false,
-            pauseMin: 50,
-            pauseMax: 60,
-            onFinish: ()=>{
-                typeWriter3.start()
-            }
-        });
-        const typeWriter3 = new TypeWriter(node3, {
-            autoStart: false,
-            keepBlinking: true,
-            cursor: "\u25ae",
-            pauseMin: 200,
-            pauseMax: 300
-        });
-
-        typeWriter1.write(" - so this is a typewriter script").start();
-        typeWriter2.write("It can write very fast, and also..");
-        typeWriter3.write("..slowly.");
-    </script>
 </body>
 </html>
