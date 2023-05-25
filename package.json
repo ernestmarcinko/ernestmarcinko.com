@@ -1,0 +1,26 @@
+{
+  "name": "ernestmarcinko.com",
+  "version": "1.0.1",
+  "description": "My personal website",
+  "private": true,
+  "main": "dist/site.js",
+  "scripts": {
+    "build": "webpack --mode=production --node-env=production",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:dev": "webpack --mode=development & webpack serve",
+    "build:prod": "webpack --mode=production --node-env=production"
+  },
+  "author": "Ernest Marcinko",
+  "license": "ISC",
+  "devDependencies": {
+    "@anag0/typewriter": "github:anag0/typewriter",
+    "copy-webpack-plugin": "^11.0.0",
+    "cssnano": "^6.0.1",
+    "esc": "^0.0.3",
+    "postcss": "^8.4.23",
+    "webpack": "^5.84.0",
+    "webpack-cli": "^5.1.1",
+    "webpack-dev-server": "^4.15.0",
+    "workbox-webpack-plugin": "^6.5.4"
+  }
+}

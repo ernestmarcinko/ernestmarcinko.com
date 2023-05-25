@@ -1,3 +1,11 @@
+import TypeWriter from "@anag0/TypeWriter";
+const typeWriter = new TypeWriter(document.querySelector('#hi'),{
+    pauseMin: 50,
+    pauseMax: 200,
+    keepBlinking: false
+});
+typeWriter.wait(1000).write("Hi, I'm Ernest");
+
 /**
  * I like to wait for the DOMContentLoaded to do my DOM related stuff, but I'm almost
  * certain this would work without that too, as it's enqueued as last in the footer.
