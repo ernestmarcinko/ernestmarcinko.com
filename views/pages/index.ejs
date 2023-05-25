@@ -7,7 +7,7 @@
     <main class="w960" role="main">
         <section class="intro">
             <h1 id="hi"></h1>
-            <p>I code. For fun.</p>
+            <p id="icode">I code. </p>
             <p class="socials">
                 <a target="_blank" href="https://www.youtube.com/@ernestmarcinko/" title="Youtube" aria-label="Youtube">
                     <svg id="youtube" height="24" width="24" version="1.1"  viewBox="0 0 461.001 461.001" xml:space="preserve">
@@ -32,7 +32,7 @@
         </section>
         <section class="projects flexy">
             <div class="project">
-                <a class="title" href="https://ernestmarcinko.com/aicookieclicker/">
+                <a class="title" href="/aicookieclicker/">
                     <h2>Cookie Clicker AI Experiment</h2>
                 </a>
                 <p>Using a javascript neural network (brain.js) to play Cookie Clicker, also experimenting with a Genetic alrorithm.</p>
@@ -44,7 +44,7 @@
                 </ul>
             </div>
             <div class="project">
-                <a class="title" href="https://ernestmarcinko.com/typewriter/">
+                <a class="title" href="/typewriter/">
                     <h2>TypeWriter Effect Script</h2>
                 </a>
                 <p>A simple but very usable TypeWriter effect script, written in vanilla javascript (ES6), only about ~2KB in size</p>
@@ -85,32 +85,7 @@
             </div>
         </section>
     </main>
-    <footer>
-        <div class="footer-container w960 flexy">
-            <div class="row">
-                <h2>Who am I?</h2>
-                <p>Just an ordinary developer.</p>
-                <p>Most of the time I work on my products, sometimes I create educational style YouTube videos for fun.</p>
-            </div>
-            <div class="row">
-                <h2>My socials</h2>
-                <ul>
-                    <li><a target="_blank" href="https://www.youtube.com/@ernestmarcinko/" title="Youtube" aria-label="Youtube">YouTube</a></li>
-                    <li><a target="_blank" href="https://twitter.com/ernest_marcinko" title="Twitter" aria-label="Twitter">Twitter</a></li>
-                    <li><a target="_blank" href="https://github.com/anag0" title="Github" aria-label="Github">Github</a></li>
-                    <li><a target="_blank" href="https://instagram.com/ernestmarcinko" title="Instagram" aria-label="Instagram">Instagram</a></li>
-                </ul>
-            </div>
-        </div>
-    </footer>
-    <script src="/dist/site.js" async></script>
-    <script>
-        const typeWriter = new TypeWriter(document.querySelector('#hi'),{
-            pauseMin: 50,
-            pauseMax: 200,
-            keepBlinking: false
-        });
-        typeWriter.wait(1000).write("Hi, I'm Ernest");
-    </script>
+
+    <%- include('../parts/footer'); %>
 </body>
 </html>
