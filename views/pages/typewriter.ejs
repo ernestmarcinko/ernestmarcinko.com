@@ -1,31 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <link rel="stylesheet" href="../style.css">
-    <link rel="icon" type="image/png" href="../img/favicon.png" />
-    <title>TypeWriter Effect Script by Ernest Marcinko</title>
-    <meta property="og:title" content="TypeWriter Effect Script by Ernest Marcinko" />
-    <meta property="og:description" content="Typewriter effect written in javascript. Easy to use, very fast, very small." />
-    <meta content="Typewriter effect written in javascript. Easy to use, very fast, very small." name="description"/>
-
-	<!-- Google Tag Manager -->
-    <script>
-    if (
-        navigator.userAgent.indexOf("Chrome-Lighthouse") === -1 &&
-        navigator.userAgent.indexOf("Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit") === -1
-    ) {
-        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','GTM-WTHG77C');
-    }
-    </script>
-    <!-- End Google Tag Manager -->
+    <%- include('../parts/head'); %>
 </head>
 <body>
     <main class="w960" role="main">
@@ -75,24 +51,7 @@
             <p><a href='../'><< Back Home</a></p>
         </section>
     </main>
-    <footer>
-        <div class="footer-container w960 flexy">
-            <div class="row">
-                <h2>Who am I?</h2>
-                <p>Just an ordinary developer.</p>
-                <p>Most of the time I work on my products, sometimes I create educational style YouTube videos for fun.</p>
-            </div>
-            <div class="row">
-                <h2>My socials</h2>
-                <ul>
-                    <li><a target="_blank" href="https://www.youtube.com/@ernestmarcinko/" title="Youtube" aria-label="Youtube">YouTube</a></li>
-                    <li><a target="_blank" href="https://twitter.com/ernest_marcinko" title="Twitter" aria-label="Twitter">Twitter</a></li>
-                    <li><a target="_blank" href="https://github.com/anag0" title="Github" aria-label="Github">Github</a></li>
-                    <li><a target="_blank" href="https://instagram.com/ernestmarcinko" title="Instagram" aria-label="Instagram">Instagram</a></li>
-                </ul>
-            </div>
-        </div>
-    </footer>
-    <script src="../site.js" async></script>
+    
+    <%- include('../parts/footer'); %>
 </body>
 </html>
