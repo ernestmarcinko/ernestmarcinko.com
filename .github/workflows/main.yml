@@ -1,7 +1,7 @@
 name: upload to prod
 on:
   push:
-    branches: [ '**' ]
+    branches: [ 'main' ]
   
   workflow_dispatch:
 
