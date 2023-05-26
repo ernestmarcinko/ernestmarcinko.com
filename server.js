@@ -1,5 +1,10 @@
-// load the things we need
-var express = require('express');
+import { createGzip } from 'zlib';
+import { SitemapStream, streamToPromise } from 'sitemap';
+import { config, getDirName } from './server.config.mjs';
+import express from 'express';
+
+const __dirname = getDirName(import.meta.url);
+
 var app = express();
 
 // set the view engine to ejs
@@ -7,8 +12,7 @@ app.set('view engine', 'ejs');
 
 app.use("/dist", express.static(__dirname + "/dist"));
 app.use("/img", express.static(__dirname + "/img"));
-
-// use res.render to load up an ejs view file
+app.use("/aicookieclicker", express.static(__dirname + "/aicookieclicker"));
 
 // index page 
 app.get('/', function(req, res) {
@@ -29,23 +33,40 @@ app.get('/typewriter', function(req, res) {
         att: att,
     });
 });
-/*app.get('/', function(req, res) {
-    var mascots = [
-        { name: 'Sammy', organization: "DigitalOcean", birth_year: 2012},
-        { name: 'Tux', organization: "Linux", birth_year: 1996},
-        { name: 'Moby Dock', organization: "Docker", birth_year: 2013}
-    ];
-    var tagline = "No programming concept is complete without a cute animal mascot.";
 
-    res.render('pages/index', {
-        mascots: mascots,
-        tagline: tagline
+let sitemap;
+app.get('/sitemap.xml', async function(req, res) {
+    res.header('content-type', 'application/xml');
+    res.header('content-encoding', 'gzip');
+    if (sitemap) {
+        res.send(sitemap)
+        return
+    }
+    try {
+        const smstream = new SitemapStream({ hostname: config.hostname })
+        const pipeline = smstream.pipe(createGzip())
+
+        smstream.write({ url: '/', changefreq: 'monthly', priority: 1});
+        smstream.write({ url: '/typewriter', changefreq: 'monthly', priority: 0.6});
+        smstream.write({ url: '/aicookieclicker', changefreq: 'monthly', priority: 0.6});
+
+        // cache the response
+        streamToPromise(pipeline).then(sm => sitemap = sm)
+        smstream.end()
+
+        // show errors and response
+        pipeline.pipe(res).on('error', (e) => {throw e});
+    } catch (e) {
+        res.status(500).end()
+        console.log(e);
+    }
+});
+
+app.get('/robots.txt', function(req, res) {
+    res.header('content-type', 'text/plain');
+    res.render('pages/robots',{
+        att: {hostname: config.hostname},
     });
-});*/
-
-// about page
-/*app.get('/about', function(req, res) {
-    res.render('pages/about');
-});*/
+});
 
 app.listen(8081);
