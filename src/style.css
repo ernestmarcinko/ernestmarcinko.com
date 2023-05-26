@@ -100,7 +100,7 @@ section.intro {
 
 .socials {
     display: flex;
-    gap: 12px;
+    gap: 18px;
     justify-content: center;
 }
 
@@ -157,7 +157,8 @@ footer .row {
 }
 
 footer .row li a {
-    line-height: 2rem;
+    padding: 8px;
+    display: inline-block;
 }
 
 @media only screen and (max-width: 480px) {

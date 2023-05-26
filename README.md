@@ -15,32 +15,49 @@ It's great for very simple presentation style pages, you only need ``nodejs`` an
 ## Usage
 Get the repository:
 
- ```git clone https://github.com/anag0/ernestmarcinko.com.git```
+ ```
+ git clone https://github.com/anag0/ernestmarcinko.com.git
+ ```
 
 Install the packages:
 
-```npm install```
+```
+npm install
+```
 
 ## Development
 
 I usually use two separate terminals, in one I do:
 
-```npm run build:dev```
+```
+npm run build:dev
+```
 
   ..and in the scond:
 
-```npm run start:dev```
+```
+npm run start:dev
+```
 
 The first will watch any file changes and recompile on the fly to the ``./dist`` directory, and the second will run ``nodemon`` to rebuild the server on server file changes.
 
 ## Production
 Just run the build script:
 
-```npm run build```
+```
+npm run build
+```
 
 Then start node:
 
-```npm start```
+```
+// Regular start
+npm start
+
+// Alternatively if you are using pm2 manager, you can do
+npm run start:prod
+```
+
 
 ## Developer Notes
 - Don't forget to remove/replace the Google Tag Manager tracking code from **views/parts/head.ejs**
