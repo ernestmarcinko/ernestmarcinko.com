@@ -1,37 +1,34 @@
 import TypeWriter from "@anag0/typewriter/";
 
-const hi = document.querySelector('#hi');
-if ( hi !== null ) {
-    const typeWriter1 = new TypeWriter(document.querySelector('#hi'),{
-        pauseMin: 50,
-        pauseMax: 200,
-        keepBlinking: false,
-        autoStart: false,
-        onFinish:()=>{
-            typeWriter2.start()
-        }
-    });
-    const typeWriter2 = new TypeWriter(document.querySelector('#icode'),{
-        pauseMin: 50,
-        pauseMax: 200,
-        autoStart: false,
-    });
-    typeWriter1.wait(1000).write("Hi, I'm Ernest").start();
-    typeWriter2.wait(500).write("For fun.");
-}
-
-/**
- * I like to wait for the DOMContentLoaded to do my DOM related stuff, but I'm almost
- * certain this would work without that too, as it's enqueued as last in the footer.
- */
 if (document.readyState === "complete" || document.readyState === "loaded"  || document.readyState === "interactive") {
     // document is already ready to go
     app();
 } else {
-    document.addEventListener('DOMContentLoaded', app);
+    window.addEventListener('DOMContentLoaded', app);
 }
 
 function app() {
+    const hi = document.querySelector('#hi');
+    if ( hi !== null ) {
+        const typeWriter1 = new TypeWriter(document.querySelector('#hi'),{
+            pauseMin: 50,
+            pauseMax: 200,
+            keepBlinking: false,
+            autoStart: false,
+            onFinish:()=>{
+                typeWriter2.start()
+            }
+        });
+        const typeWriter2 = new TypeWriter(document.querySelector('#icode'),{
+            pauseMin: 50,
+            pauseMax: 200,
+            autoStart: false,
+        });
+        typeWriter1.wait(1000).write("Hi, I'm Ernest").start();
+        typeWriter2.wait(500).write("For fun.");
+    }
+    
+
     let lastKnownScrollPosition = 0;
     let ticking = false;
     
