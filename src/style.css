@@ -7,6 +7,7 @@
     --color-anchor: rgb(231, 44, 75);
     --color-project-bg: rgb(19, 19, 19, 0.4);
     --color-project-bg-hover: rgb(19, 19, 19, 0.8);
+    --color-pre: rgb(22, 27, 34, 0.40);
 }
 
 html {
@@ -39,6 +40,12 @@ p, ul li {
     font-size: 1rem;
     line-height: 1.4rem;
     text-shadow: 0 1px 0px var(--color-pink-opaque);
+}
+
+pre {
+    background: var(--color-pre);
+    padding: 6px 12px;
+    display: inline;
 }
 
 a {
