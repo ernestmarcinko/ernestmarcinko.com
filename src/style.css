@@ -8,6 +8,11 @@
     --color-project-bg: rgb(19, 19, 19, 0.4);
     --color-project-bg-hover: rgb(19, 19, 19, 0.8);
     --color-pre: rgb(22, 27, 34, 0.40);
+    
+    --wrapper-width: 1280px;
+    --project-gap: 2rem;
+    --project-min-width: 380px;
+    --project-columns: 3;
 }
 
 html {
@@ -38,8 +43,12 @@ h2 {
 
 p, ul li {
     font-size: 1rem;
-    line-height: 1.4rem;
+    line-height: 1.6rem;
     text-shadow: 0 1px 0px var(--color-pink-opaque);
+}
+
+ul li {
+    line-height: 1.8rem;
 }
 
 pre {
@@ -63,8 +72,8 @@ a.title {
     color: white;
 }
 
-.w960 {
-    max-width: 960px;
+.wrapper {
+    max-width: var(--wrapper-width);
 }
 
 main {
@@ -113,14 +122,17 @@ section.intro {
 }
 
 .projects .project {
-    min-width: 240px;
-    max-width: 320px;
+    min-width: var(--project-min-width);
+    max-width: calc(
+        100% / var(--project-columns) -  (var(--project-columns)-1) * var(--project-gap) / var(--project-columns) 
+    );
     width: 100%;
     padding: 8px 24px;
     box-shadow: 0 0 2px 1px var(--color-pink);
     border-radius: 4px;
     background: var(--color-project-bg);
     transition: all 0.3s;
+    box-sizing: border-box;
 }
 
 .projects .project:hover,
@@ -156,15 +168,13 @@ footer .row {
     max-width: 480px;
 }
 
-footer .row li a {
-    padding: 8px;
-    display: inline-block;
-}
-
 @media only screen and (max-width: 480px) {
     main {
         background-position-x: center;
         background-position-y: 40px;
+    }
+    .projects .project {
+        min-width: 320px;
     }
     .footer-container {
         justify-content: left;
