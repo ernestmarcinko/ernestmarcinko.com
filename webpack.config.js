@@ -1,34 +1,36 @@
-const path = require('path');
-const CopyWebpackPlugin = require("copy-webpack-plugin");
-const postcss  = require('postcss');
-const cssnano  = require('cssnano');
+import { path, getDirName } from './server.config.mjs';
+import {default as CopyWebpackPlugin} from 'copy-webpack-plugin';
+import {default as cssnano} from 'cssnano';
+import { default as postcss } from 'postcss';
 
-module.exports = {
-    entry: './src/site.js',
-    output: {
-      path: path.resolve(__dirname, 'dist'),
-      filename: 'site.js',
-    },
-  
-    plugins: [
-      new CopyWebpackPlugin({
-        patterns: [
-          {
-            from: 'src/*.css',
-            to: './[name][ext]',
-            transform: (content, path) => {
-              return postcss([cssnano])
-                .process(content, {
-                  from: path,
-                })
-                .then((result) => {
-                  return result.css;
-                });
-            },
+const __dirname = getDirName(import.meta.url);
+
+export default {
+  entry: './src/site.js',
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'site.js',
+  },
+
+  plugins: [
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: 'src/*.css',
+          to: './[name][ext]',
+          transform: (content, path) => {
+            return postcss([cssnano])
+              .process(content, {
+                from: path,
+              })
+              .then((result) => {
+                return result.css;
+              });
           },
-        ],
-      }),
-    ],
-    
-    watch: true,
-  };
+        },
+      ],
+    }),
+  ],
+
+  watch: true,
+};
