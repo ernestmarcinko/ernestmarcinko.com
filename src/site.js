@@ -35,11 +35,11 @@ function app() {
     function highlightProject(scrollPos) {
         if ( typeof screen.orientation !== 'undefined' && window.innerWidth <= 720 && scrollPos > 0 ) {
             let items = document.querySelectorAll('.project'),
-                smallestDistance = 99999;
+                smallestDistance = 99999,
                 closest = -1;
             items.forEach((el, i)=>{
                 el.classList.remove('active')
-                let distance = Math.abs(el.getBoundingClientRect().top - window.innerHeight / 2);
+                let distance = Math.abs(el.getBoundingClientRect().top - window.innerHeight / 5);
                 if ( distance < smallestDistance ) {
                     smallestDistance = distance;
                     closest = i;
