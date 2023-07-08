@@ -34,6 +34,16 @@ app.get('/typewriter', function(req, res) {
     });
 });
 
+app.get('/flappybird', function(req, res) {
+    var att = {
+        title: 'Flappy Bird in TypeScript by Ernest Marcinko',
+        description: 'Play Flappy Bird online. Created in javascript, typescript using a canvas.'
+    };
+    res.render('pages/flappybird',{
+        att: att,
+    });
+});
+
 let sitemap;
 app.get('/sitemap.xml', async function(req, res) {
     res.header('content-type', 'application/xml');
