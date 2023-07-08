@@ -5,7 +5,7 @@ import { default as postcss } from 'postcss';
 
 const __dirname = getDirName(import.meta.url);
 
-export default {
+export default [{
   entry: './src/site.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -33,4 +33,12 @@ export default {
   ],
 
   watch: true,
-};
+},
+{
+  entry: './src/flappybird.js',
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'flappybird.js',
+  },
+}
+];

@@ -27,6 +27,7 @@
     "copy-webpack-plugin": "^11.0.0",
     "cssnano": "^6.0.1",
     "esc": "^0.0.3",
+    "flappybird-ts": "^0.1.2",
     "nodemon": "^2.0.22",
     "postcss": "^8.4.23",
     "webpack": "^5.84.0",
