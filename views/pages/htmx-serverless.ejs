@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../parts/head'); %>
+    <script src="/dist/htmx-serverless.js"></script>
+</head>
+<body>
+    <main class="wrapper" role="main">
+        <section class="intro htmx-serverless">
+            <h1 id="tw1">HTMX Serverless</h1>
+            <p>
+                <h3>Click the button to do things</h3>
+                <button hx-get="/clicked" hx-swap="outerHTML" hx-ext="serverless">
+                    Click to change the buttons!
+                </button>
+                <p>The button changes via HTMX without server queries.</p>
+                <p><a href='https://github.com/ernestmarcinko/htmx-serverless'>Github repository</a> | <a href="https://www.npmjs.com/package/htmx-serverless">npm</a></p>
+
+            </p>
+        </section>
+        <section style="max-width: 640px;">
+            <h2>HTMX boosted</h2>
+            <p>
+                HTMX without a server? Yes, it is possible! Although HTMX is designed focusing on server-client connections,
+                in some cases it is convenient to define static responses to certain requests.
+            </p>
+            <p>
+                This is what the <a href="https://github.com/ernestmarcinko/htmx-serverless">htmx-serverless</a> library can do.
+            </p>
+            <p><a href='../'><< Back Home</a></p>
+        </section>
+    </main>
+    
+    <%- include('../parts/footer'); %>
+</body>
+</html>

@@ -40,5 +40,12 @@ export default [{
     path: path.resolve(__dirname, 'dist'),
     filename: 'flappybird.js',
   },
+},
+{
+  entry: './src/htmx-serverless.js',
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'htmx-serverless.js',
+  },
 }
 ];

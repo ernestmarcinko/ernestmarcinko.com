@@ -34,6 +34,16 @@ app.get('/typewriter', function(req, res) {
     });
 });
 
+app.get('/htmx-serverless', function(req, res) {
+    var att = {
+        title: 'HTMX without a Server',
+        description: 'HTMX Serverless is a small addon to define static HTMX request and responses without a Server'
+    };
+    res.render('pages/htmx-serverless',{
+        att: att,
+    });
+});
+
 app.get('/flappybird', function(req, res) {
     var att = {
         title: 'Flappy Bird in TypeScript by Ernest Marcinko',
@@ -58,6 +68,8 @@ app.get('/sitemap.xml', async function(req, res) {
 
         smstream.write({ url: '/', changefreq: 'monthly', priority: 1});
         smstream.write({ url: '/typewriter', changefreq: 'monthly', priority: 0.6});
+        smstream.write({ url: '/flappybird', changefreq: 'monthly', priority: 0.6});
+        smstream.write({ url: '/htmx-serverless', changefreq: 'monthly', priority: 0.6});
         smstream.write({ url: '/aicookieclicker', changefreq: 'monthly', priority: 0.6});
 
         // cache the response
