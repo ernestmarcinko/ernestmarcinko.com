@@ -98,6 +98,11 @@ section.intro {
     margin: 10rem auto;
 }
 
+section.htmx-serverless {
+    background: #000000a8;
+    max-width: 640px;;
+}
+
 .socials a svg path {
     fill: white;
     transition: fill 0.2s;
@@ -111,6 +116,17 @@ section.intro {
     display: flex;
     gap: 18px;
     justify-content: center;
+}
+
+section.htmx-serverless button {
+    padding: 1em 2em;
+    color: white;
+    background: #1585ef;
+    border: none;
+    border-radius: 2em;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 700;
 }
 
 .flexy {
