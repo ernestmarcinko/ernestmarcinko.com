@@ -44,6 +44,12 @@ export default [{
 {
   entry: './src/htmx-serverless.js',
   output: {
+    library: {
+      name: 'duck',
+      type: 'global',
+      export: 'default',
+    },
+    globalObject: 'window',
     path: path.resolve(__dirname, 'dist'),
     filename: 'htmx-serverless.js',
   },
