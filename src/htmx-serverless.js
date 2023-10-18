@@ -3,33 +3,29 @@ import htmxServerless from "htmx-serverless";
 
 htmxServerless.init(htmx);
 
-htmxServerless.handlers.set('/clicked', 
-    `<button hx-get="/clicked2" hx-swap="outerHTML" hx-ext="serverless">
-        Hey!
-    </button>`
-);
-htmxServerless.handlers.set('/clicked2', 
-    `<button hx-get="/clicked3" hx-swap="outerHTML" hx-ext="serverless">
-        Okay then!
-    </button>`
-);
-htmxServerless.handlers.set('/clicked3', 
-    `<button hx-get="/clicked4" hx-swap="outerHTML" hx-ext="serverless">
-        Stop it now.
-    </button>`
-);
-htmxServerless.handlers.set('/clicked4', 
-    `<button hx-get="/clicked5" hx-swap="outerHTML" hx-ext="serverless">
-        Just stop pls..
-    </button>`
-);
-htmxServerless.handlers.set('/clicked5', 
-    `<button hx-get="/clicked6" hx-swap="outerHTML" hx-ext="serverless">
-        Sus.
-    </button>`
-);
-htmxServerless.handlers.set('/clicked6', 
-    `<button hx-get="/clicked" hx-swap="outerHTML" hx-ext="serverless">
-        I'm done.
-    </button>`
-);
+const duck = {}
+let duckCount = 0;
+duck.getDuck = function(text, params, xhr){
+    let status = 'bad, get more.';
+    
+
+    if ( duckCount > 0 && duckCount < 10 ) {
+        status = 'okay.'
+    } else if ( duckCount < 20 ) {
+        status = 'getting better.'
+    } else if ( duckCount < 50 ) {
+        status = 'getting better and better.'
+    } else if ( duckCount < 100 ) {
+        status = 'even better!'
+    } else if ( duckCount < 200 ) {
+        status = 'marvelous!'
+    } else if ( duckCount < 500 ) {
+        status = 'duckolitios!'
+    } else if ( duckCount < 500 ) {
+        status = 'what???'
+    }
+
+    return `You have ${duckCount++} 🦆, it is ${status}`;
+}
+
+export default duck;

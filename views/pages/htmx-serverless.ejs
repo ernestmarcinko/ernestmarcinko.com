@@ -10,12 +10,12 @@
             <h1 id="tw1">HTMX Serverless</h1>
             <p>
                 <h3>Click the button to do things</h3>
-                <button hx-get="/clicked" hx-swap="outerHTML" hx-ext="serverless">
-                    Click to change the buttons!
+                <button hx-get="js:duck.getDuck" hx-trigger="click, load" hx-target="next .duckcount" hx-ext="serverless">
+                    Click for more 🦆!
                 </button>
-                <p>The button changes via HTMX without server queries.</p>
+                <span class="duckcount"></span>
+                <p>The button changes via HTMX without server, on the client side. <a href='https://gist.github.com/ernestmarcinko/48b2f7fc81a845b8cfcbd7dac26ac5a3'>Source 🦆 code.</a></p>
                 <p><a href='https://github.com/ernestmarcinko/htmx-serverless'>Github repository</a> | <a href="https://www.npmjs.com/package/htmx-serverless">npm</a></p>
-
             </p>
         </section>
         <section style="max-width: 640px;">
