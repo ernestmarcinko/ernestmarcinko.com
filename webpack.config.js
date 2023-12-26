@@ -53,5 +53,18 @@ export default [{
     path: path.resolve(__dirname, 'dist'),
     filename: 'htmx-serverless.js',
   },
+},
+{
+  entry: './src/github-worth.js',
+  output: {
+    library: {
+      name: 'garbage',
+      type: 'global',
+      export: 'default',
+    },
+    globalObject: 'window',
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'github-worth.js',
+  },
 }
 ];

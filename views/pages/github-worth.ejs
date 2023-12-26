@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../parts/head'); %>
+    <script src="/dist/github-worth.js"></script>
+    <style>
+        .github-worth {
+            background-image: none;
+        }
+        .github-worth button,
+        .github-worth input[type="text"] {
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-weight: 700;
+            margin: 1em;
+        }
+
+        .github-worth input[type="text"] {
+            background: var(--color-bg);
+            border: 1px solid #354b5e;
+            color: white;
+        }
+        p.idiot {
+            font-style: italic;
+            font-size: 2em;
+        }
+    </style>
+</head>
+<body>
+    <main class="wrapper github-worth" role="main"> 
+        <section class="intro">
+            <h1 id="tw1">How much is your github repo worth?</h1>
+            <div>
+                <h3>Click the button to withdraw $$$</h3>
+                <input type="text" placeholder="github username">
+                <button hx-get="js:garbage" hx-trigger="click" hx-target=".github-worth div" hx-ext="serverless">
+                    Give me my money
+                </button>
+            </div>
+        </section>
+        <section style="max-width: 640px;">
+            <p><a href='../'><< Back Home</a></p>
+        </section>
+    </main>
+    
+    <%- include('../parts/footer'); %>
+</body>
+</html>

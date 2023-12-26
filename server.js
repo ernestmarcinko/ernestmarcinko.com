@@ -44,6 +44,16 @@ app.get('/htmx-serverless', function(req, res) {
     });
 });
 
+app.get('/github-worth', function(req, res) {
+    var att = {
+        title: 'Get money for your github account',
+        description: 'See how much your fantastic github account is worth and get the money immediately'
+    };
+    res.render('pages/github-worth',{
+        att: att,
+    });
+});
+
 app.get('/flappybird', function(req, res) {
     var att = {
         title: 'Flappy Bird in TypeScript by Ernest Marcinko',
