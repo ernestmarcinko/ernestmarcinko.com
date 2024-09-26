@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../parts/head'); %>
+    <style>
+	.images {
+		display: flex;
+		align-items: flex-start;
+		justify-content: center;
+		flex-wrap: wrap;
+		gap: 12px;
+	}
+	.images img {
+		max-width: 300px;
+	}
+	</style>
+</head>
+<body>
+    <main class="wrapper" role="main">
+        <section class="intro">
+            <h1><%- att.title %></h1>
+            <p><%- att.description %></p>
+        </section>
+        <section class="images">
+			<% for(var i=0; i<att.images.length; i++) {%>
+				<a href="<%- att.images[i] %>">
+					<img src="<%- att.images[i] %>" loading="lazy">
+				</a>
+            <% } %>
+        </section>
+    </main>
+    
+    <%- include('../parts/footer'); %>
+</body>
+</html>
